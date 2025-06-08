@@ -1,47 +1,62 @@
 # 🧪 Test Automation for BG Treasury System
 
-This repository contains the **UI Test Automation Framework** for the BG Treasury System. It validates mission-critical workflows through automated browser testing using Selenium and NUnit, ensuring quality and reliability across software deployments.
+This repository contains the **UI Test Automation Framework** for the BG Treasury System. It enables automated validation of mission-critical workflows using **Selenium** and **NUnit**, ensuring stability, compliance, and quality across application deployments.
 
 ---
 
 ## 📌 Project Overview
 
-The BG Treasury System automates the processing, validation, enrichment, and tracking of **SWIFT payments** and financial transactions. Built on a **microservices** architecture with **Kafka topics** and **database-driven orchestration**, it enables seamless and accurate payment processing.
+The **BG Treasury System** automates the ingestion, validation, enrichment, and tracking of **SWIFT payment messages** (e.g., `pacs.008`). Designed using **microservices**, **Kafka topics**, and **SQL-based orchestration**, the system ensures efficient and accurate financial transaction processing.
+
+This automation framework targets the **UI layer**, simulating real user interactions to validate business rules, workflow logic, and system behavior.
 
 ---
 
-## ✅ Features of the Automation Framework
+## 🔭 Test Objectives
 
-- Selenium WebDriver for UI browser automation
-- NUnit as the test framework
-- ExtentReports for rich HTML test reports with screenshots
-- log4net for logging execution flow and issues
-- Configurable environment setup (URLs, Chrome paths, etc.)
-- Resilient interaction with flaky elements using safe retry logic
-- Screenshot capture for passed and failed tests
+- Automate essential test scenarios to speed up releases
+- Validate core UI workflows and business rules
+- Ensure regression stability through repeatable automated tests
+- Generate structured reports and logs for transparency and debugging
 
 ---
 
-## 🛠 Tech Stack
+## ✅ Framework Features
 
-| Tool/Library       | Purpose                   |
-| ------------------ | ------------------------- |
-| C# (.NET)          | Programming Language      |
-| Selenium WebDriver | UI Automation             |
-| NUnit              | Test Framework            |
-| ExtentReports      | Test Reporting            |
-| log4net            | Logging                   |
-| ChromeDriver       | Browser Automation Driver |
+- 🚀 **Selenium WebDriver** for reliable browser automation
+- 🧪 **NUnit** for test lifecycle management and assertions
+- 📊 **ExtentReports** for interactive HTML reports with screenshots
+- 📝 **log4net** for configurable logging across tests
+- 🔧 Config-driven setup: environment URLs, browser drivers, timeouts
+- 🔁 Safe-click utilities and retry logic to handle UI flakiness
+- 📸 Auto-capture screenshots on test pass/failure
 
 ---
 
-# 💼 BG Treasury System
+## 🚀 Project Setup
+
+> ⚠️ Prerequisites:
+
+- .NET 8.0 SDK or higher
+- Google Chrome browser installed
+- ChromeDriver path configured
+---
+## :gear: Config file contain 
+- Basis for all Test Environments Setup 
+- User Authentication 
+- path to browser including base URI
+- Link to web browser
+
+
+---
+
+# 💼 BG Treasury System - SUT
 
 The BG Treasury System automates the processing, validation, enrichment, and tracking of **SWIFT payments and transactions**. It is built using **microservices**, **Kafka topics**, and **SQL-backed orchestration**, providing robust, scalable, and traceable financial transaction processing.
 
 ---
 
-## 📊 System Overview
+### 📊 System Overview
 
 The system ingests **ISO 20022 pacs.008** messages and performs the following high-level tasks:
 
@@ -54,7 +69,8 @@ The system ingests **ISO 20022 pacs.008** messages and performs the following hi
 
 ---
 
-## 🧩 Architecture
+### 🧩 Architecture
+
 ![BG Treasury Architecture](docs/architecture.png)
 
 ### 🔑 Key Components
@@ -110,3 +126,5 @@ Each Kafka topic represents a **checkpoint** in the end-to-end processing lifecy
 6. **User Interaction**
 
    - AppWorks provides audit logs, retry features, and manual overrides
+
+---

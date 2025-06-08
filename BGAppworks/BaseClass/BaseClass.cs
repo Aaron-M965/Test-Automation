@@ -28,9 +28,7 @@ namespace BGAppworks.testSuite
         public static IWebDriver driver;
         public static ExtentReports extent;
         public static ExtentTest testlog;
-        //public static ExtentSparkReporter spark;
-        //string dateTimeStamp = DateTime.Now.ToString("yyyyMMddHHmm");
-        //public log4net.ILog Log = log4net.LogManager.GetLogger(typeof(BaseClass));
+        
 
         public BaseClass()
         {
