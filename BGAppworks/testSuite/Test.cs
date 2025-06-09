@@ -44,8 +44,9 @@ namespace BGAppworks.testSuite
         [Test]
         public void YourTestMethod()
         {
-            driver.Navigate().GoToUrl("https://www.google.com");
-            Thread.Sleep(10000); // Replace with proper waits in real tests
+            driver.Navigate().GoToUrl("http://10.10.89.155:81/home/Enterprise_Build/app/start/web/");
+            Thread.Sleep(30000); // Replace with proper waits in real tests
+            
         }
 
         [OneTimeTearDown]
