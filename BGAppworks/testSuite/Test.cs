@@ -2,48 +2,56 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
 
-namespace BOPCUSAppWorks.testSuite
+namespace BGAppworks.testSuite
 {
-    public class Test
+    public class TestSuite
     {
-        public static IWebDriver driver;
+        private IWebDriver? driver;
+
         [OneTimeSetUp]
-        public void InvokeBrowser() {
-            System.Environment.SetEnvironmentVariable("webdriver.chrome.driver", @".\\Driver\\chromedriver-win64\\chromedriver.exe");
-            ChromeOptions co = new ChromeOptions();
-            co.BinaryLocation = @".\\Browser\\chrome-win64\\chrome.exe";
-            driver = new ChromeDriver(co);
+        public void SetUp()
+        {
+            // Get the bin directory (e.g. bin\Debug\net7.0)
+            string projectDirectory = TestContext.CurrentContext.TestDirectory;
+
+            // Navigate to the ChromeDriver folder
+            string driverFolder = Path.Combine(projectDirectory, "..", "..", "..", "Driver", "chromedriver-win64");
+            driverFolder = Path.GetFullPath(driverFolder);
+
+            // Optional: Check for portable Chrome binary
+            string chromeBinaryPath = Path.Combine(projectDirectory, "..", "..", "..", "Browser", "chrome-win64", "chrome.exe");
+            chromeBinaryPath = Path.GetFullPath(chromeBinaryPath);
+
+            ChromeOptions options = new ChromeOptions();
+
+            // Set portable Chrome binary if it exists
+            if (File.Exists(chromeBinaryPath))
+            {
+                options.BinaryLocation = chromeBinaryPath;
+            }
+
+            // Initialize the driver using the correct folder path
+            driver = new ChromeDriver(driverFolder, options);
+
             driver.Manage().Cookies.DeleteAllCookies();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             driver.Manage().Window.Maximize();
         }
 
         [Test]
-        public void TestSample()
+        public void YourTestMethod()
         {
-            driver.Url = "http://google.com";
+            driver.Navigate().GoToUrl("https://www.google.com");
+            Thread.Sleep(10000); // Replace with proper waits in real tests
         }
 
         [OneTimeTearDown]
         public void TearDown()
         {
-            driver.Quit();
+            driver?.Quit();
         }
-            
-
-
-
-
-
-
-
     }
-
-        
-    
 }
