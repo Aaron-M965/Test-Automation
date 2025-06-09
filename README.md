@@ -124,7 +124,7 @@ Each Kafka topic represents a **checkpoint** in the end-to-end processing lifecy
    - Phoenix DB stores data and supports enrichment via lookups
 5. **Downstream Systems**
 
-   - Data flows to Mainframe, validation layers, reconciliation
+   - Data flows to AppWorks for reconciliation
 6. **User Interaction**
 
    - AppWorks provides audit logs, retry features, and manual overrides
