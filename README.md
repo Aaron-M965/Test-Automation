@@ -46,6 +46,8 @@ This automation framework targets the **UI layer**, simulating real user interac
 - User Authentication 
 - path to browser including base URI
 - Link to web browser
+- `dotnet test --logger:console;verbosity=detailed` run tests fom cli
+
 
 
 ---
