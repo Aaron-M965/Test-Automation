@@ -17,3 +17,7 @@ TestResults/
 # Ignore any leftover Chrome binaries
 chrome-win64/
 chromedriver*
+
+# Ignore Visual Studio Code settings
+.vscode/*
+.vs/
